@@ -1,0 +1,121 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+header {
+  display: flex; 
+  justify-content: space-between;
+  padding: 10px;
+}
+header img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+   
+}
+
+#logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#navBar{
+        display: flex;
+        align-items: center;
+      
+        
+}
+header h1 {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: #12a7ba;
+}
+
+nav ul{
+    display: flex;
+    gap: 50px;
+}
+
+ul li {
+   font-size: xx-large;
+   padding: 10px;
+   border: rgb(25, 151, 229) solid;
+}
+a { text-decoration: none; color: black;}
+a:hover{
+    color: #12a7ba;;
+}
+main{
+    display: flex; 
+    flex-direction: column;
+align-items: center;
+gap: 20px;
+}
+
+main section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
+    height: 50px;
+    color: white;
+    font-size:2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #12a7ba;
+   
+}
+main h3{
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    height: 50px;
+    color: white;
+    font-size:2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(25, 229, 56);
+}
+
+footer{
+height: 550px;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+font-family:  'Arial Narrow', Arial, sans-serif;
+font-size: 3rem;
+
+}
+footer section{
+   display: flex;
+   gap: 30px;
+   
+    background-color:  #12a7ba;
+    display: flex;
+    padding: 20px;
+
+  
+}
+footer h3 {
+
+    color: rgb(244, 236, 236);
+   
+}
+
+
+.pending{
+    background-color: rgb(238, 57, 37);
+}
+
+.finished{
+    background-color: rgb(72, 255, 0);
+}
+input.largerCheckbox {
+    width: 20px;
+    height: 20px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+
+
