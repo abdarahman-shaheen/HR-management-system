@@ -1,18 +1,20 @@
 'use strict'
+let AllEmployees=[];
 
 function Employee(employeeId,fullName,department,level,imageURL,salary){
 
     this.employeeId=employeeId;
     this.fullName=fullName;
     this.department=department;
-    this.imageURL =imageURL;
+    this.imageURL =`./assets/${this.fullName}.jpg`;
     this.level=level;
-    this.salary=salary;
+    this.salary=0;
 
+    AllEmployees.push(this);
 }
 
 Employee.prototype.calculating=function(){
-    let netSalary=0;
+
 if(this.level=="Senior"){
    this.salary= Math.round(Math.floor(Math.random()*(2000-1500)+1500))
    this.salary=parseInt(this.salary- (this.salary * 7.5/100))
@@ -30,39 +32,49 @@ else{
 }
 }
 
-let Ghazi= new Employee(1000,"Ghazi Samer","	Administration","Senior","",0,)
-let Lana= new Employee(1001,"Lana Ali","Finance","Senior","",0,)
-
-let Tamara= new Employee(1002,"Tamara Ayoub","	Marketing","Senior","",0,)
-let Safi= new Employee(1001,"	Safi Walid","Administration	","	Mid-Senior","",0,)
-
-let Omar= new Employee(1002,"Omar Zaid","	Development","Senior","",0,)
-let Rana= new Employee(1001,"	Rana Saleh","Development	","	Junior","",0,)
-let Hadi= new Employee(1001,"	Hadi Ahmad","	Finance","Mid-Senior","",0,)
-
 
 
 Employee.prototype.rander = function (){
-    document.write(`<section><h2>${this.fullName} <h2> ${this.salary}</h2>
-    </h2>   </section>
-     `)
+   
+const contaner = document.getElementById('nested');
+
+const divEl = document.createElement('div');
+    contaner.appendChild(divEl);
+   
+    const imges =document.createElement('img')
+    divEl.appendChild(imges)
+    imges.src=`${this.imageURL}`
     
+    const h3El=document.createElement('h3')
+    divEl.appendChild(h3El);
+    h3El.textContent=`Name:${this.fullName} -Id:${this.employeeId}`
+    const h4El=document.createElement('h3')
+    divEl.appendChild(h4El);
+    h4El.textContent=`Deperatment:${this.department}
+     level: ${this.level}`
 }
 
-Ghazi.calculating();
-Ghazi.rander();
-Lana.calculating();
-Lana.rander();
-Tamara.calculating();
-Tamara.rander();
-Safi.calculating();
-Safi.rander();
-Omar.calculating();
-Omar.rander();
-Rana.calculating();
-Rana.rander();
-Hadi.calculating();
-Hadi.rander();
+
+
+
+let formEl=document.getElementById('employeeForm')
+
+formEl.addEventListener("submit",submitHand)
+
+function submitHand(event){
+    event.preventDefault();
+ 
+    let fullname =event.target.fname.value;
+    let department=event.target.Department.value;
+    let levels=event.target.level.value;
+let image=event.target.imgurl.value
+    
+let newEmployee= new Employee(10001,fullname,department,levels,image)
+
+newEmployee.rander();
+}
+
+
 
 
 
