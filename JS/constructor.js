@@ -6,7 +6,7 @@ function Employee(employeeId,fullName,department,level,imageURL,salary){
     this.employeeId=employeeId;
     this.fullName=fullName;
     this.department=department;
-    this.imageURL =imageURL;
+    this.imageURL =imageURl;
     this.level=level;git
     this.salary=0;
 
