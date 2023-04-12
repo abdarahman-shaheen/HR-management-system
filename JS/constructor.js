@@ -6,8 +6,8 @@ function Employee(employeeId,fullName,department,level,imageURL,salary){
     this.employeeId=employeeId;
     this.fullName=fullName;
     this.department=department;
-    this.imageURL =`./assets/${this.fullName}.jpg`;
-    this.level=level;
+    this.imageURL =imageURL;
+    this.level=level;git
     this.salary=0;
 
     AllEmployees.push(this);
@@ -43,7 +43,7 @@ Employee.prototype.rander = function (){
     
     let img=document.createElement('img')
     divElback.appendChild(img);
-    img.src="./assets/Ghazi.jpg";
+    img.src=`${this.imageURL}`;
     
     let divElAbout =document.createElement('div');
     divElback.appendChild(divElAbout);
