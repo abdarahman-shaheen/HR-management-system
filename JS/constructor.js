@@ -36,40 +36,47 @@ else{
 
 Employee.prototype.rander = function (){
    
-const contaner = document.getElementById('nested');
-
-const divEl = document.createElement('div');
-    contaner.appendChild(divEl);
-   
-    const imges =document.createElement('img')
-    divEl.appendChild(imges)
-    imges.src=`${this.imageURL}`
+    const contaner = document.getElementById("container");
+    let divElback = document.createElement('div')
+    divElback.id="background-container";
+    contaner.appendChild(divElback);
     
-    const h3El=document.createElement('h3')
-    divEl.appendChild(h3El);
-    h3El.textContent=`Name:${this.fullName} -Id:${this.employeeId}`
-    const h4El=document.createElement('h3')
-    divEl.appendChild(h4El);
-    h4El.textContent=`Deperatment:${this.department}
-     level: ${this.level}`
+    let img=document.createElement('img')
+    divElback.appendChild(img);
+    img.src="./assets/Ghazi.jpg";
+    
+    let divElAbout =document.createElement('div');
+    divElback.appendChild(divElAbout);
+    divElAbout.id="about-employes";
+    let h1ElName=document.createElement('h1');
+    divElAbout.appendChild(h1ElName);
+    h1ElName.textContent=`Name: ${this.fullName}`
+    let h1ElId=document.createElement('h1')
+    divElAbout.appendChild(h1ElId);
+    h1ElId.textContent=`Id: ${this.employeeId}`;
+    let h1ElDepartment=document.createElement('h1')
+    divElAbout.appendChild( h1ElDepartment);
+    h1ElDepartment.textContent=`Department:${this.department}`;
+    let h1ElLevel=document.createElement('h1')
+    divElAbout.appendChild(h1ElLevel);
+    h1ElLevel.textContent=`Level: ${this.level}`;
+    
+    
 }
 
 
-
-
-let formEl=document.getElementById('employeeForm')
+let formEl=document.getElementById('employee-Form')
 
 formEl.addEventListener("submit",submitHand)
 
 function submitHand(event){
     event.preventDefault();
- 
     let fullname =event.target.fname.value;
-    let department=event.target.Department.value;
+    let Department=event.target.Department.value;
     let levels=event.target.level.value;
 let image=event.target.imgurl.value
     
-let newEmployee= new Employee(10001,fullname,department,levels,image)
+let newEmployee= new Employee(10001,fullname,Department,levels,image)
 
 newEmployee.rander();
 }
