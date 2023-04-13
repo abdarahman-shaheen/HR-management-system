@@ -2,17 +2,20 @@ body{
     display: flex;
     flex-direction: column;
     gap: 50px;
+    height: max-content;
 }
 
 header {
   display: flex; 
   justify-content: space-between;
   padding: 10px;
+  background-color: #12a7ba;
 }
 header img {
     width: 90px;
     height: 90px;
     border-radius: 50%;
+    
 }
 
 #logo{
@@ -27,7 +30,7 @@ header img {
 header h1 {
     font-size: xx-large;
     font-weight: bolder;
-    color: #12a7ba;
+    color: white;
 }
 
 nav ul{
@@ -38,16 +41,16 @@ nav ul{
 ul li {
    font-size: xx-large;
    padding: 10px;
-   border: rgb(25, 151, 229) solid;
+   border: white solid;
 }
-a { text-decoration: none; color: black;}
+a { text-decoration: none; color:white;}
 a:hover{
-    color: #12a7ba;;
+    color:wheat;
 }
 main{
     display: flex; 
     flex-direction: column;
-gap: 15px;
+gap: 5px;
 }
 
 #employee-Form{
@@ -66,7 +69,8 @@ legend{
 }
 .text-form{
     display: flex;
-    height: 1.8rem;
+    height: max-content;
+    width: max-content;
     padding: 0.375rem 0.75rem;
     color: #495057;
     background-clip: padding-box;
@@ -94,53 +98,103 @@ button{
 #container{
     display: flex;
     align-self: center;
-    width: 80%;
-    background-color: #12a7ba;
-    padding: 25px;
+    
+    padding: 50px;
+ gap: 10px;
+ 
+ border-radius: 1%;
+ width: 100%;
+}
+#container #Administration{
+    display: flex;
+    height: max-content;
+    flex-direction: column;
+    background-color:indigo;
+    padding: 10px;
  gap: 20px;
- flex-wrap: wrap;
-
+ border-radius:1%;
+ align-items: center;
+ width: 100%;
+}
+#container #Marketing{
+    display: flex;
+    height: max-content;
+    flex-direction: column;
+    background-color: yellow;
+    padding: 10px;
+ gap: 20px;
+ border-radius: 1%;
+ align-items: center;
+ width: 100%;
+}
+#container #Development{
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    padding: 10px;
+ gap: 20px;
+ border-radius: 1%;
+ align-items: center;
+ width: 100%;
+}
+#container #Finance{
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    background-color:green;
+    padding: 10px;
+ gap: 20px;
+ border-radius: 1%;
+ align-items: center;
+ width: 100%;
 }
 
 #background-container{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 20px;
+    padding: 26px;
     background-color: white;
-    width: 20%;
+    width: 220px;
     height: 350px;
     border-radius: 5%;
+    width: 60%;
+}
+div h2{
+    font-size: 50px;
+    color: white;
 }
 #about-employes{
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding: 5%;
+    gap: 20px;
+    padding: 5px;
+    width: 100%;
+   
 }
-#about-employes h3{
-    font: 15px sans-serif;
+#about-employes h1{
+    font: 100% sans-serif;
+    font-weight: bolder;
 }
 
 footer{
     display: flex;
     flex-direction: column;
+    height: max-content;
     height: 500px;
     justify-content: flex-end;
 }
 footer section{
    display: flex;
-   align-self: flex-end;
    justify-content: space-around;
    gap: 30px;
     background-color:  #12a7ba;
-    display: flex;
     padding: 20px;
     font-family:  'Arial Narrow', Arial, sans-serif;
     font-size: 2rem;
     width: 100%;
     
-  
 }
 footer h3 {
 
@@ -148,7 +202,7 @@ footer h3 {
    
 }
 img{
-    text-align: center();
+   
     width: 100%;
     height: 200px;
 }
