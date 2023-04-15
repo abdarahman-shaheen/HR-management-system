@@ -26,9 +26,32 @@
             </section>
         </header>
         <main>
+            <div >
+                <table border="1">
+                  <thead>
+                    <tr>
+                      <th>Department</th>
+                      <th>#Employee</th>
+                      <th>Total Salary</th>
+                      <th>Avg Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody id="employees-container">
+                    <tr id="rowAdministration"><td>Administration</td></tr>
+                    <tr id="rowMarketing"><td>Marketing</td></tr>
+                    <tr id="rowDevelopment"><td>Development</td></tr>
+                    <tr id="rowFinance"><td>Finance</td></tr>
+                    <!-- Employee data will be dynamically added here using JavaScript -->
+                  </tbody>
+                  <tfoot>
+                    <tr id="total"><td>Total</td></tr>
+                  </tfoot>
+                </table>
+              </div>
 
         </main>
         <footer>
+            
             <section>   <h3> &copy;copyright Shaheen2023 </h3>
             
           <a href="https://www.facebook.com/profile.php?id=100005316136853"><i class="fa-brands fa-facebook-f" style="color:white;">    Facebook</i></a> 
@@ -39,6 +62,6 @@
     
           
         </footer>
-    
+        <script src="./JS/accounting.js"></script>
 </body>
 </html>

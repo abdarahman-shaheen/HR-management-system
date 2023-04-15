@@ -207,5 +207,33 @@ img{
     height: 200px;
 }
 
+table {
+    margin-left: 22%;
+    margin-top: 5%;
+    width: 50%;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: #333;
+    
+  }
 
+  thead {
+    background-color: #12a7ba;
+    font-weight: bold;
+    color: white;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+
+ 
+
+  
 

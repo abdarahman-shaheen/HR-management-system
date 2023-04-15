@@ -1,6 +1,6 @@
 'use strict'
 
-
+let accointing =[];
 let allEmployees = [];
 let formEl = document.getElementById('employee-Form');
 formEl.addEventListener("submit", submitHand);
@@ -13,27 +13,32 @@ function Employee(employeeId, fullName, department, level, imageURL, salary) {
     this.imageURL = imageURL;
     this.level = level;
     this.salary = salary;
-
     allEmployees.push(this);
+accointing.push(this.department);
 }
 
-Employee.prototype.calculating = function () {
 
-    if (this.level == "Senior") {
-        this.salary = Math.round(Math.floor(Math.random() * (2000 - 1500) + 1500))
-        this.salary = parseInt(this.salary - (this.salary * 7.5 / 100))
-        return this.salary;
+function calculating() {
+for (let i = 0; i < allEmployees.length; i++) {
+    
+    if (allEmployees[i].level == "Senior") {
+        allEmployees[i].salary = Math.round(Math.floor(Math.random() * (2000 - 1500) + 1500))
+        allEmployees[i].salary = parseInt(allEmployees[i].salary - (allEmployees[i].salary * 7.5 / 100))
+        return allEmployees[i].salary;
     }
-    else if (this.level == "Mid-senior") {
-        this.salary = Math.round(Math.floor(Math.random() * (1500 - 1000) + 1000))
-        this.salary = parseInt(this.salary - (this.salary * 7.5 / 100))
-        return this.salary;
+    else if (allEmployees[i].level == "Mid-senior") {
+        allEmployees[i].salary = Math.round(Math.floor(Math.random() * (1500 - 1000) + 1000))
+        allEmployees[i].salary = parseInt(allEmployees[i].salary - (allEmployees[i].salary * 7.5 / 100))
+        return allEmployees[i].salary;
     }
     else {
-        this.salary = Math.round(Math.floor(Math.random() * (1000 - 500) + 500))
-        this.salary = parseInt(this.salary - (this.salary * 7.5 / 100))
-        return this.salary;
+        allEmployees[i].salary = Math.round(Math.floor(Math.random() * (1000 - 500) + 500))
+        allEmployees[i].salary = parseInt(allEmployees[i].salary - (allEmployees[i].salary * 7.5 / 100))
+        return allEmployees[i].salary;
     }
+}
+  
+
 }
 function generateRandom4digit() {
     let randomNumber4digit = Math.floor(1000 + Math.random() * 9000);
@@ -42,9 +47,13 @@ function generateRandom4digit() {
 function addEmployeeJson() {
     let jsonArray = localStorage.getItem('keyEmployee')
     let getInformationEmployee = JSON.parse(jsonArray);
-
     allEmployees = getInformationEmployee;
 
+}
+function accounting() {
+    let jsonArray = localStorage.getItem('keyAccountig')
+    let getInformationAccount = JSON.parse(jsonArray);
+    accointing = getInformationAccount;
 }
 
 function submitHand(event) {
@@ -53,14 +62,24 @@ function submitHand(event) {
     let levels = event.target.level.value;
     let image = event.target.imgurl.value
     let id = generateRandom4digit();
-    let newEmployee = new Employee(id, fullname, Department, levels, image)
+    let salary =calculating();
+    let newEmployee = new Employee(id, fullname, Department, levels, image,salary)
     let jsonArryEmployee = JSON.stringify(allEmployees);
     localStorage.setItem('keyEmployee', jsonArryEmployee);
+
+
+    let jsonArryAccountig = JSON.stringify(accointing);
+    localStorage.setItem('keyAccountig',jsonArryAccountig );
 }
+
 function rander() {
     addEmployeeJson();
     if (allEmployees == null) {
         allEmployees = [];
+    }
+    accounting()
+    if (accointing == null) {
+        accointing = [];
     }
     for (let i = 0; i < allEmployees.length; i++) {
         if (allEmployees[i].department == 'Administration') {
@@ -86,6 +105,7 @@ function rander() {
             let h1ElLevel = document.createElement('h1')
             divElAbout.appendChild(h1ElLevel);
             h1ElLevel.textContent = `Level: ${allEmployees[i].level}`;
+                
         }
         else if (allEmployees[i].department == 'Marketing') {
             const contaner = document.getElementById("Marketing");
@@ -167,6 +187,7 @@ function rander() {
 
 
 addEmployeeJson();
+accounting()
 rander();
 
 
