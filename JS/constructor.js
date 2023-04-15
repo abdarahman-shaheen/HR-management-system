@@ -1,6 +1,6 @@
 'use strict'
 
-let accointing =[];
+
 let allEmployees = [];
 let formEl = document.getElementById('employee-Form');
 formEl.addEventListener("submit", submitHand);
@@ -14,9 +14,8 @@ function Employee(employeeId, fullName, department, level, imageURL, salary) {
     this.level = level;
     this.salary = salary;
     allEmployees.push(this);
-accointing.push(this.department);
-}
 
+}
 
 function calculating() {
 for (let i = 0; i < allEmployees.length; i++) {
@@ -50,11 +49,6 @@ function addEmployeeJson() {
     allEmployees = getInformationEmployee;
 
 }
-function accounting() {
-    let jsonArray = localStorage.getItem('keyAccountig')
-    let getInformationAccount = JSON.parse(jsonArray);
-    accointing = getInformationAccount;
-}
 
 function submitHand(event) {
     let fullname = event.target.fname.value;
@@ -62,14 +56,11 @@ function submitHand(event) {
     let levels = event.target.level.value;
     let image = event.target.imgurl.value
     let id = generateRandom4digit();
-    let salary =calculating();
-    let newEmployee = new Employee(id, fullname, Department, levels, image,salary)
+    let salarys =calculating() || 562;
+    let newEmployee = new Employee(id, fullname, Department, levels, image,salarys)
     let jsonArryEmployee = JSON.stringify(allEmployees);
     localStorage.setItem('keyEmployee', jsonArryEmployee);
 
-
-    let jsonArryAccountig = JSON.stringify(accointing);
-    localStorage.setItem('keyAccountig',jsonArryAccountig );
 }
 
 function rander() {
@@ -77,10 +68,7 @@ function rander() {
     if (allEmployees == null) {
         allEmployees = [];
     }
-    accounting()
-    if (accointing == null) {
-        accointing = [];
-    }
+    
     for (let i = 0; i < allEmployees.length; i++) {
         if (allEmployees[i].department == 'Administration') {
             const contaner = document.getElementById("Administration");
@@ -187,7 +175,7 @@ function rander() {
 
 
 addEmployeeJson();
-accounting()
+
 rander();
 
 
